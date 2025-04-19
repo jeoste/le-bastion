@@ -1,4 +1,6 @@
 site_name: Le Bastion
+site_description: "Le Bastion est un site web créé avec MkDocs Material thèmes servant de PKM."
+site_url: https://jeoste.github.io/le-bastion
 nav:
   - Home: index.md
   - Admonition: admonition.md
@@ -14,8 +16,6 @@ theme:
     - navigation.footer
   logo: assets/shield-logo.png
   favicon: assets/favicon.ico
-  icon:
-    #logo: simple/vault
   font:
     text: Inter
     code: Roboto Mono
@@ -36,14 +36,24 @@ theme:
       primary: cyan
       accent: orange
 
+plugins:
+  - search
+  - blog:
+      blog_dir: .   
+      archive_date_format: yyyy
+      archive_url_date_format: yyyy
+      post_url_format: "{slug}"
+  - rss
+
 markdown_extensions:
   - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - md_in_html
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
   social:
@@ -51,5 +61,8 @@ extra:
       link: https://github.com/jeoste
     - icon: material/web
       link: https://linktr.ee/jeoste
+
+hooks:
+  - hooks/socialmedia.py
 
 copyright: Copyright &copy; 2024 Jeoffrey Stéphan
