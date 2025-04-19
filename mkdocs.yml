@@ -48,7 +48,6 @@ plugins:
       archive_url_date_format: yyyy
       post_url_format: "{slug}"
   - rss
-  - optimize
 
 markdown_extensions:
   - attr_list
